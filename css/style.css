@@ -1,0 +1,76 @@
+
+
+html, body {
+    height: 100%;
+  }
+  body {
+    background: black;
+    min-height: 100%;
+
+  }
+  
+  @keyframes move {
+    100% {
+      transform: translate3d(0, 0, -1000px);
+    }
+  }
+  .container {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    transform-style: preserve-3d;
+    
+  }
+  .bubble-wrap {
+    margin: 0 auto;
+    width: 500px;
+    height: 500px;
+    transform-style: preserve-3d;
+    transform-origin: center center;
+    perspective: 600px;
+  }
+  .bubble {
+    position: absolute;
+    background: black;
+    opacity: .7;
+    border-radius: 50%;
+    animation: move 3s infinite;
+    
+  }
+  
+  @for $i from 1 through 100 {
+    .bubble:nth-child(#{$i}){
+       $size: random(30)+px;
+       height: $size;
+       width: $size;
+       animation-delay: -$i * .2s;
+       transform: translate3d( (random(1000) * 1px),  (random(1000) * 1px), (random(2000) * 1px));
+       background: hsl( random(360) , 70%, 50%);
+    }
+   
+  }
+  
+  h1{
+    font-family: 'Alfa Slab One', cursive;
+    width: 20vw;
+    margin-left: 40vw;
+
+  }
+  h1:hover{
+    animation: neon3 1.5s ease-in-out infinite alternate;
+  }
+
+  h5{font-family: 'Permanent Marker', cursive;}
+  p{font-family: 'Patrick Hand', cursive;}
+  #bg-img{
+    background-image: url(https://i.pinimg.com/originals/17/5b/a5/175ba524800daa9efc4b20c85f8f65c3.jpg);
+    background-attachment: fixed;
+  }
+  @keyframes neon3 {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FFDD1B, 0 0 70px #FFDD1B, 0 0 80px #FFDD1B, 0 0 100px #FFDD1B, 0 0 150px #FFDD1B;
+    }
+    to {
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FFDD1B, 0 0 35px #FFDD1B, 0 0 40px #FFDD1B, 0 0 50px #FFDD1B, 0 0 75px #FFDD1B;
+    }
+  }
